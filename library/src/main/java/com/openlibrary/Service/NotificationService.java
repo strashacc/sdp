@@ -1,5 +1,7 @@
 package com.openlibrary.Service;
 
+import com.openlibrary.Model.Book;
+
 public class NotificationService implements Observer{
     private static NotificationService instance;
 
@@ -12,8 +14,11 @@ public class NotificationService implements Observer{
     }
 
     @Override
-    public void update() {
-        // Generate a concrete addition and removel notification method
-        
+    public void update(Book book) {
+        if(book == null){
+            System.out.println("A book hass been removed");
+        }
+        else
+            System.out.println("Notification: New book added - " + book.getTitle());
     }
 }

@@ -6,6 +6,7 @@ import java.util.List;
 
 // BookController.java
 public class BookController {
+    private BookService bookService;
 
     public BookController() {
         this.bookService = BookService.getInstance();
