@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.openlibrary.Controller.*;
 import com.openlibrary.Model.*;
-import org.springframework.web.bind.annotation.RequestBody;
 
 
 @SpringBootApplication
@@ -27,7 +26,6 @@ public class LibraryApplication {
 
 }
 
-
 @Controller
 class View{
 	@GetMapping("/books")
@@ -38,7 +36,6 @@ class View{
 
 		return "books";
 	}
-	
 	@PostMapping("/books/external")
 	public String addExternalBook(@RequestParam int uniqueCode,
                               @RequestParam String bookName,
@@ -53,6 +50,7 @@ class View{
    	 model.addAttribute("books", facade.getBooks());
     	return "books";
 	}
+
 	@PostMapping("/books")
 	public String postMethodName(@RequestParam String title
 								,@RequestParam String author
@@ -67,11 +65,12 @@ class View{
 		
 		return "books";
 	}
-
+	
 	@GetMapping("/books/delete/{id}")
 	public String getMethodName(@PathVariable int id) {
 		LibraryFacade facade = new LibraryFacade();
 		facade.removeBook(id);
 		return "redirect:/books";
 	}
+	
 }
