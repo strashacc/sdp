@@ -7,5 +7,8 @@ public class RemoveBookCommand implements Command {
     private BookService bookService;
     private int bookId;
 
+    @Override
+    public void execute() {
+    }
 
 }
